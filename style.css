@@ -245,6 +245,16 @@ main{
     width: 100%;
 }
 
+.post_comment{
+    display: flex;
+    gap: 1rem;
+    background-color: var(--White);
+    padding: 20px;
+    border: transparent;
+    border-radius: 10px;
+    width: 100%;
+}
+
 .add_comment_wrapper.active{
     display: flex;
 }
@@ -275,4 +285,61 @@ main{
     color: var(--White);
     border: transparent;
     border-radius: 10px;
+}
+
+
+
+@media (max-width: 700px){
+    .main_comment{
+        position: relative;
+    }
+
+    .comments_main_wrapper{
+        max-width: 90%;
+        padding: 0;
+    }
+
+    .votes{
+        position:absolute;
+        flex-direction: row;
+        bottom: 10px;
+        padding: 10px;
+        font-size: 70%;
+    }
+
+    .comment_txt{
+        margin-bottom: 40px;
+    }
+
+    .top_right {
+        position: absolute;
+        display: flex;
+        bottom: 15px;
+        right: 10px;
+    }
+
+    .add_new_comment{
+        width: 100%;
+    }
+
+    .add_comment_wrapper, .post_comment{
+        position: relative;
+    }
+
+    #comment_input, .comment_input{
+        margin-bottom: 40px;
+    }
+
+    .current_user_avatar{
+        position: absolute;
+        bottom: 0;
+        left: 5px;
+        transform: scale(50%);
+    }
+
+    .send_btn{
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+    }
 }

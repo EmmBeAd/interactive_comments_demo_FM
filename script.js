@@ -178,7 +178,7 @@ fetch('data.json')
         }
 
         add_new_comment.innerHTML = `
-                                        <div class="add_comment_wrapper active">
+                                        <div class="post_comment">
                                             <div class="current_user_avatar"><img src="${my_array.currentUser.image.png}"></div>
                                             <textarea name="comment_input" id="comment_input" rows="5" placeholder="Add a comment"></textarea>
                                             <button class="send_btn_fr send_btn" onclick="handle_send_btn()">SEND</button>
