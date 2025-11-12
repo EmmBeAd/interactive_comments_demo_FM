@@ -23,30 +23,30 @@ const handle_send_btn = () => {
 }
 
 const handleReplyBtn = (event) => {
-            const parentAt = gotoParent('comment_box', event.target)
+            const parentAt = getParent('comment_box', event.target)
             parentAt.querySelector('.add_comment_wrapper').classList.add('active')
         }
 
-const gotoParent = (parent_class, childElement) => {
-    let result = childElement
+const getParent = (parent_class, childElement) => {
+    let currentElement = childElement
     
-    while(result){
+    while(currentElement){
 
-        if(result.classList && result.classList.contains(parent_class)){
-            return result
+        if(currentElement.classList && currentElement.classList.contains(parent_class)){
+            return currentElement
         }
-        result = result.parentNode
+        currentElement = currentElement.parentNode
         
     }
     return null;
 }
 
 const handleDeleteBtn = (event) => {
-    gotoParent('comment_box', event.target).style.display = 'none'
+    getParent('comment_box', event.target).style.display = 'none'
 }
 
 const handleEditBtn = (event) => {
-    gotoParent('comment_box', event.target).querySelector('.comment').classList.add('active')
+    getParent('comment_box', event.target).querySelector('.comment').classList.add('active')
     
 }
 
@@ -64,9 +64,9 @@ let handle_send_btn_click = (event) => {
                 comments_wrapper.children[main_comment_index].appendChild(reply)
             } else{
     
-                let reply_box = gotoParent('replies_box', button)
+                let reply_box = getParent('replies_box', button)
                 if(reply_box == null){
-                    reply_box = gotoParent('comment_box', button).querySelector('.replies_box')
+                    reply_box = getParent('comment_box', button).querySelector('.replies_box')
                 }
                 // let reply_box = button.parentNode.parentNode.parentNode                
                 
@@ -80,14 +80,14 @@ let handle_send_btn_click = (event) => {
                 new_reply_btn.addEventListener('click', () => {  
                     // send_btn = document.querySelectorAll('.send_btn') 
     
-                    const btn_parent = gotoParent('comment_box', new_reply_btn)
+                    const btn_parent = getParent('comment_box', new_reply_btn)
                     btn_parent.querySelector('.add_comment_wrapper').classList.add('active') //toggle add_comment wrapper active state
                 })
 
             }
     
             comment_input_h.value = '';
-            let btn_parent = gotoParent('comment_box', button)
+            let btn_parent = getParent('comment_box', button)
             btn_parent.querySelector('.add_comment_wrapper').classList.remove('active')
             // add_comment_wrapper[index].classList.remove('active')
 
@@ -191,7 +191,7 @@ fetch('data.json')
         // reply_btn.forEach((button, index) => {
         //     button.addEventListener('click', () => {
         //         add_comment_wrapper[index].classList.add('active')
-        //         gotoParent('comment_box', button)
+        //         getParent('comment_box', button)
         //         // button.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.add_comment_wrapper').classList.add('active')
         //     })
         // });
